@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>socket io test</title>
+        <script src="/socket.io/socket.io.js"></script>
+    </head>
+    <body>
+        <script>
+            const socket = io();
+
+            function sendMyMSG(msg) {
+                socket.emit("hello", msg);
+            }
+
+            socket.on("hello", (data)=>{
+                console.log(data);
+            });
+        </script>
+        <input type="text" id="msg"/>
+        <button onclick='sendMyMSG(document.getElementById("msg").value)'>메시지 전송!!</button>
+    </body>
+</html>
